@@ -147,4 +147,22 @@ class LibraryTests {
         ArrayList<Book> result = library.searchBooks(SearchByType.NAME, keys);
         assertNull(result);
     }
+
+    @Test
+    void testNotLendingUnregisteredBookOrStudentWithSameBook() {
+        assertFalse(library.lendBook(book3, student1));
+        assertTrue(library.lendBook(book1, student1));
+        assertFalse(library.lendBook(book1, student1));
+    }
+
+    @Test
+    void testStudentCannotReturnBooksHeDoesNotHave() {
+        assertFalse(student1.hasBook(book1));
+        // cannot return book now
+        assertFalse(library.returnBook(book1, student1));
+        assertTrue(library.lendBook(book1, student1));
+        // can return book now
+        assertTrue(library.returnBook(book1, student1));
+        assertFalse(student1.hasBook(book1));
+    }
 }
