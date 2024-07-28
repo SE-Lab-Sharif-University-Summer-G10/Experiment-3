@@ -51,15 +51,17 @@ class LibraryTests {
     @Test
     void testSearchStudentsById() {
         ArrayList<Object> ids = new ArrayList<>();
-        ids.add(1);
-        ids.add(2);
-        ids.add(13342);
+        ids.add(student1.getId());
+        ids.add(student3.getId());
+
+        ids.add(student2.getId());
 
         ArrayList<Student> result = library.searchStudents(SearchByType.ID, ids);
         assertNotNull(result);
         assertEquals(2, result.size());
         assertTrue(result.contains(student1));
-        assertTrue(result.contains(student2));
+        assertTrue(result.contains(student3));
+        assertFalse(result.contains(student2));
     }
 
     @Test
@@ -74,7 +76,8 @@ class LibraryTests {
         assertNotNull(result);
         assertEquals(2, result.size());
         assertTrue(result.contains(student1));
-        assertTrue(result.contains(student2));
+        assertTrue(result.contains(student3));
+        assertFalse(result.contains(student2));
     }
 
 
@@ -94,8 +97,10 @@ class LibraryTests {
     @Test
     void testSearchBooksById() {
         ArrayList<Object> ids = new ArrayList<>();
-        ids.add(10);
-        ids.add(11);
+        ids.add(student1.getId());
+        ids.add(student3.getId());
+
+        ids.add(student2.getId());
 
         ArrayList<Book> result = library.searchBooks(SearchByType.ID, ids);
         assertNotNull(result);
@@ -108,25 +113,30 @@ class LibraryTests {
     void testSearchBooksByTitle() {
         ArrayList<Object> titles = new ArrayList<>();
         titles.add(book1.getTitle());
+        titles.add(book2.getTitle());
+
         titles.add(book3.getTitle());
 
         ArrayList<Book> result = library.searchBooks(SearchByType.TITLE, titles);
         assertNotNull(result);
         assertEquals(2, result.size());
         assertTrue(result.contains(book1));
-        assertTrue(result.contains(book3));
+        assertTrue(result.contains(book2));
     }
 
     @Test
     void testSearchBooksByAuthor() {
         ArrayList<Object> authors = new ArrayList<>();
         authors.add(book1.getAuthor());
+        authors.add(book2.getAuthor());
+        authors.add(book3.getAuthor());
 
         ArrayList<Book> result = library.searchBooks(SearchByType.AUTHOR, authors);
         assertNotNull(result);
         assertEquals(2, result.size());
         assertTrue(result.contains(book1));
-        assertTrue(result.contains(book3));
+        assertFalse(result.contains(book3));
+        assertTrue(result.contains(book2));
     }
 
     @Test
