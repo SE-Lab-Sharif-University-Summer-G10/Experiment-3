@@ -81,7 +81,27 @@ public class Library {
      * @return             The list of students that match the search criteria. Returns null if search type is title or author.
      */
     public ArrayList<Student> searchStudents(SearchByType searchByType, ArrayList<Object> keys) {
-        // TODO complete function
+        if (searchByType == SearchByType.ID) {
+            ArrayList<Student> result = new ArrayList<>();
+            for (Object key : keys) {
+                for (Student student : students) {
+                    if (student.getId() == (int) key) {
+                        result.add(student);
+                    }
+                }
+            }
+            return result;
+        } else if (searchByType == SearchByType.NAME) {
+            ArrayList<Student> result = new ArrayList<>();
+            for (Object key : keys) {
+                for (Student student : students) {
+                    if (student.getName().equals(key)) {
+                        result.add(student);
+                    }
+                }
+            }
+            return result;
+        }
         return null;
     }
 
@@ -94,7 +114,37 @@ public class Library {
      * @return             The list of books that match the search criteria. Returns null if search type is name.
      */
     public ArrayList<Book> searchBooks(SearchByType searchByType, ArrayList<Object> keys) {
-        // TODO complete function
+        if (searchByType == SearchByType.ID) {
+            ArrayList<Book> result = new ArrayList<>();
+            for (Object key : keys) {
+                for (Book book : books) {
+                    if (book.getId() == (int) key) {
+                        result.add(book);
+                    }
+                }
+            }
+            return result;
+        } else if (searchByType == SearchByType.TITLE) {
+            ArrayList<Book> result = new ArrayList<>();
+            for (Object key : keys) {
+                for (Book book : books) {
+                    if (book.getTitle().equals(key)) {
+                        result.add(book);
+                    }
+                }
+            }
+            return result;
+        } else if (searchByType == SearchByType.AUTHOR) {
+            ArrayList<Book> result = new ArrayList<>();
+            for (Object key : keys) {
+                for (Book book : books) {
+                    if (book.getAuthor().equals(key)) {
+                        result.add(book);
+                    }
+                }
+            }
+            return result;
+        }
         return null;
     }
 
