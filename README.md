@@ -64,6 +64,7 @@
 
 ### اجرای کد اولیه به همراه coverage
 نتیجه‌ی زیر پس از اجرای اولیه‌ی کدها به کمک IDE به دست آمده‌است:
-
+<img width="502" alt="Screenshot 2024-07-29 at 12 10 46 AM" src="https://github.com/user-attachments/assets/3cf1ec3c-70ed-4b34-9712-b4776dbffd01">
 ### اجرای کد به همراه coverage پس از افزودن تست‌های جدید
-پس از افزودن دو تست برای lend و return می‌بینیم که پوشش آزمون برای کلاس Library بالاتر رفته است:
+پس از افزودن دو تست برای lend و return می‌بینیم که پوشش خط برای کلاس Library بالاتر رفته است:
+<img width="503" alt="Screenshot 2024-07-29 at 12 10 04 AM" src="https://github.com/user-attachments/assets/c38a9978-c38d-4739-ae46-930c77166771">
